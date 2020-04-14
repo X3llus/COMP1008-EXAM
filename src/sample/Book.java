@@ -73,7 +73,7 @@ public class Book {
         return releaseDate;
     }
 
-    public void setReleaseDate(LocalDate releaseDate) throws IllegalArgumentException {
+    public void setReleaseDate(LocalDate releaseDate) {
         if (releaseDate.isBefore(LocalDate.now())) {
             this.releaseDate = releaseDate;
         } else {

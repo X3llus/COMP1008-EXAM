@@ -26,7 +26,7 @@
                         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="title">
+                  <TextField fx:id="txt_title">
                      <HBox.margin>
                         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                      </HBox.margin>
@@ -109,4 +109,11 @@
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
+   <bottom>
+      <Label fx:id="lbl_error" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </BorderPane.margin>
+      </Label>
+   </bottom>
 </BorderPane>
