@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<BorderPane maxHeight="400.0" maxWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <top>
       <Label text="Create a Book" BorderPane.alignment="CENTER">
          <font>
@@ -26,12 +26,12 @@
                         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField>
+                  <TextField fx:id="title">
                      <HBox.margin>
                         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                      </HBox.margin>
                   </TextField>
-                  <DatePicker promptText="Release Date">
+                  <DatePicker fx:id="date" promptText="Release Date">
                      <HBox.margin>
                         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                      </HBox.margin>
@@ -40,12 +40,12 @@
             </HBox>
             <HBox prefHeight="27.0" prefWidth="600.0">
                <children>
-                  <RadioButton fx:id="fiction" mnemonicParsing="false" text="Fiction">
+                  <RadioButton fx:id="fiction" mnemonicParsing="false" onAction="#setFiction" text="Fiction">
                      <HBox.margin>
                         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                      </HBox.margin>
                   </RadioButton>
-                  <RadioButton fx:id="nonFiction" mnemonicParsing="false" text="Non-Fiction">
+                  <RadioButton fx:id="nonFiction" mnemonicParsing="false" onAction="#setNonFiction" text="Non-Fiction">
                      <HBox.margin>
                         <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                      </HBox.margin>
@@ -75,7 +75,7 @@
                               <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                            </VBox.margin>
                         </Label>
-                        <ListView prefHeight="200.0" prefWidth="200.0">
+                        <ListView fx:id="genres" prefHeight="200.0" prefWidth="200.0">
                            <VBox.margin>
                               <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                            </VBox.margin>
@@ -84,7 +84,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="Create Book" />
+                        <Button mnemonicParsing="false" onAction="#makeBook" prefHeight="100.0" prefWidth="100.0" text="Create Book" />
                      </children>
                   </VBox>
                   <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="150.0">
@@ -94,7 +94,7 @@
                               <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                            </VBox.margin>
                         </Label>
-                        <ListView prefHeight="200.0" prefWidth="200.0">
+                        <ListView fx:id="books" prefHeight="200.0" prefWidth="200.0">
                            <VBox.margin>
                               <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                            </VBox.margin>
