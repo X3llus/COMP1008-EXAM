@@ -8,7 +8,7 @@ public class Author {
     private String lastName;
     private LocalDate birthday;
 
-    public Author(String firstName, String lastName, LocalDate birthday) throws IllegalAccessException {
+    public Author(String firstName, String lastName, LocalDate birthday) throws IllegalArgumentException {
         setFirstName(firstName);
         setLastName(lastName);
         setBirthday(birthday);
@@ -18,12 +18,12 @@ public class Author {
         return firstName;
     }
 
-    public void setFirstName(String firstName) throws IllegalAccessException {
+    public void setFirstName(String firstName) {
         firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1);
         if (checkName(firstName)) {
             this.firstName = firstName;
         } else {
-            throw new IllegalAccessException("First name must be more than one character and cannot include numbers or special characters");
+            throw new IllegalArgumentException("First name must be more than one character and cannot include numbers or special characters");
         }
     }
 
@@ -31,12 +31,12 @@ public class Author {
         return lastName;
     }
 
-    public void setLastName(String lastName) throws IllegalAccessException {
+    public void setLastName(String lastName) {
         lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1);
         if (checkName(lastName)) {
             this.lastName = lastName;
         } else {
-            throw new IllegalAccessException("Last name must be more than one character and cannot include numbers or special characters");
+            throw new IllegalArgumentException("Last name must be more than one character and cannot include numbers or special characters");
         }
     }
 
@@ -44,11 +44,11 @@ public class Author {
         return birthday;
     }
 
-    public void setBirthday(LocalDate birthday) throws IllegalAccessException {
+    public void setBirthday(LocalDate birthday) {
         if (birthday.isBefore(LocalDate.now().minusYears(3))) {
             this.birthday = birthday;
         } else {
-            throw new IllegalAccessException("Date must be more than 3 years ago");
+            throw new IllegalArgumentException("Date must be more than 3 years ago");
         }
     }
 
