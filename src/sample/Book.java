@@ -36,7 +36,7 @@ public class Book {
 
     public void setType(String type) {
         if (type.equalsIgnoreCase("fiction") || type.equalsIgnoreCase("non-fiction")) {
-            this.type = type;
+            this.type = type.toLowerCase();
         } else {
             throw new IllegalArgumentException("Type must be either fiction or non-fiction");
         }
@@ -48,10 +48,10 @@ public class Book {
     }
 
     public void setGenre(String genre) {
-        if (getType().equalsIgnoreCase("fiction") && Genres.populateFictionGenres().contains(genre)) {
-            this.genre = genre.toLowerCase();
-        } else if (getType().equalsIgnoreCase("non-fiction") && Genres.populateNonFictionGenres().contains(genre)) {
-            this.genre = genre.toLowerCase();
+        if (getType().equals("fiction") && Genres.populateFictionGenres().contains(genre)) {
+            this.genre = genre;
+        } else if (getType().equals("non-fiction") && Genres.populateNonFictionGenres().contains(genre)) {
+            this.genre = genre;
         } else {
             throw new IllegalArgumentException("Genre is not in list of " + getType() + " genre's");
         }
@@ -83,7 +83,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return getTitle() + ", " + getType() + "-" + getGenre() + " author: " + getAuthor();
+        return getTitle() + ", " + getType() + "-" + getGenre() + ", author: " + getAuthor();
     }
 
     private boolean isEmpty(String input) {
