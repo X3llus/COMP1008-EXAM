@@ -38,7 +38,7 @@ public class Book {
         if (type.equalsIgnoreCase("fiction") || type.equalsIgnoreCase("non-fiction")) {
             this.type = type;
         } else {
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("Type must be either fiction or non-fiction");
         }
 
     }
@@ -48,7 +48,13 @@ public class Book {
     }
 
     public void setGenre(String genre) {
-        this.genre = genre;
+        if (getType().equalsIgnoreCase("fiction") && Genres.populateFictionGenres().contains(genre)) {
+            this.genre = genre.toLowerCase();
+        } else if (getType().equalsIgnoreCase("non-fiction") && Genres.populateNonFictionGenres().contains(genre)) {
+            this.genre = genre.toLowerCase();
+        } else {
+            throw new IllegalArgumentException("Genre is not in list of " + getType() + " genre's");
+        }
     }
 
     public Author getAuthor() {
@@ -56,7 +62,11 @@ public class Book {
     }
 
     public void setAuthor(Author author) {
-        this.author = author;
+        if (author != null) {
+            this.author = author;
+        } else {
+            throw new IllegalArgumentException("Author was not entered");
+        }
     }
 
     public LocalDate getReleaseDate() {
@@ -73,13 +83,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", type='" + type + '\'' +
-                ", genre='" + genre + '\'' +
-                ", author=" + author +
-                ", releaseDate=" + releaseDate +
-                '}';
+        return getTitle() + ", " + getType() + "-" + getGenre() + " author: " + getAuthor();
     }
 
     private boolean isEmpty(String input) {

@@ -1,6 +1,7 @@
 package sample;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.regex.Pattern;
 
 public class Author {
@@ -53,7 +54,7 @@ public class Author {
     }
 
     public int getAge() {
-        return LocalDate.now().minusYears(birthday.getYear()).getYear();
+        return Period.between(birthday, LocalDate.now()).getYears();
     }
 
     @Override

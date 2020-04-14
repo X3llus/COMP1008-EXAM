@@ -1,5 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
+import sample.Author;
+import sample.Book;
+import sample.Genres;
 
 import java.time.LocalDate;
 
@@ -89,7 +92,7 @@ public class BookTest {
     @Test
     public void setGenreFiction() {
         book.setType("fiction");
-        for (String genre:Genres.populateFictionGenres())
+        for (String genre: Genres.populateFictionGenres())
         {
             try {
                 book.setGenre(genre);
