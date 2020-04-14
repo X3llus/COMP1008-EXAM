@@ -1,5 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
+import sample.Author;
 
 import java.time.LocalDate;
 
